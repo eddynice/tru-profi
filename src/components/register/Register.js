@@ -75,15 +75,22 @@ export default class Register extends Component {
         this.state = { alert: null };
         }
         submitForm = (values,history)=>{
-          console.log(history)
           axios.post("/user/signup", values)
-          .then(res =>console.log(res.data.result))
-            
-          
-          .catch(error=>{ console.log(error)
-             
-              //swal("Error", "unexpected error", "error")
+          .then(res => {
+            console.log(res.data.result);
+            if (res.data.result === "success") {
+              swal("Success!", res.data.message, "warning").then(value => {
+                history.push("/login");
+              });
+            } else if (res.data.result === "error") {
+              swal("Error!", res.data.message, "error");
+            }
           })
+          .catch(error => {
+            console.log(error);
+            swal("Error!", "Unexpected error", "error");
+          });
+         
       }
 
    
