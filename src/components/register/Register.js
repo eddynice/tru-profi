@@ -75,11 +75,12 @@ export default class Register extends Component {
         this.state = { alert: null };
         }
         submitForm = (values,history)=>{
-          axios.post("/user/signup", values)
+          axios.post("/user/signup/", values)
           .then(res => {
             console.log(res.data.result);
             if (res.data.result === "success") {
-              swal("Success!", res.data.message, "warning").then(value => {
+              swal("Success!", res.data.message, "warning")
+              .then(values => {
                 history.push("/login");
               });
             } else if (res.data.result === "error") {
@@ -88,8 +89,8 @@ export default class Register extends Component {
           })
           .catch(error => {
             console.log(error);
-            swal("Error!", "Unexpected error", "error");
-          });
+            swal("Error!", "Unexpected error", "error")
+          })
          
       }
 
