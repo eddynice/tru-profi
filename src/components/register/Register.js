@@ -77,27 +77,12 @@ export default class Register extends Component {
         submitForm = (values,history)=>{
           console.log(history)
           axios.post("/user/signup", values)
-          .then(res =>{
-              console.log(res.data.result);
-              if(res.data.result === "success"){
-                localStorage.setItem("TOKEN_KEY",res.data.token);
-                swal("success", res.data.message, "success")
-                .then(value =>{
-                    setTimeout(() => {
-                        history.push("/")
-                    }, 2000);
-                   
-                });
-            }else if(res.data.result === "error"){
-                swal("error", res.data.message, "error")
-            }
-              
-          })
+          .then(res =>console.log(res.data.result))
+            
           
-          .catch(error=>{
-              console.log(error)
+          .catch(error=>{ console.log(error)
              
-              swal("Error", "unexpected error", "error")
+              //swal("Error", "unexpected error", "error")
           })
       }
 
