@@ -107,20 +107,15 @@ componentDidMount(){
                     ):null}
         </div>
         <div className="row">
-          <div className="col-8">
-            <div className="icheck-primary">
-              <input type="checkbox" id="remember" disabled />
-              <label htmlFor="remember">
-                Remember Me
-              </label>
-            </div>
-          </div>  
-          {/* /.col */}
-          <div className="col-4">
-            <button type="submit" className="btn btn-danger btn-block">Sign In</button>
+         
+          <div className="col-8 "  >
+            <button style={{alignItems:"center"}} type="submit" className="btn btn-danger btn-block " >Sign In</button>
           </div>
           {/* /.col */}
+         
+        
         </div>
+    
       </form>);
 }
 
@@ -132,7 +127,7 @@ render(){
 {/* /.login-logo */}
 <div className="card card-outline card-primary">
 <div className="card-header text-center">
-<h1><b>TRU</b>-CLASS</h1>
+<h1><b>TRU</b></h1>
 </div>
 <div className="card-body">
 <p className="login-box-msg">Sign in </p>
@@ -166,8 +161,8 @@ validationSchema={signupSchema}
         <a href="forgot-password.html">I forgot my password</a>
       </p> */}
       
-      <p className="text-center"> OR </p>
-      <div className="social-auth-links text-center">
+     
+      <div className="social-auth-links text-left">
       <Link className="text-center btn btn-block" to="/register">REGISTER AS A NEW USER</Link>
       </div>
 {/** 

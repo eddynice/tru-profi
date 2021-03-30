@@ -24,7 +24,7 @@ export default function Timeline() {
   axios.get("/comment")
   .then((response)=>{
      setstate(response.data)
-     console.log(response)
+ 
   })
  
 

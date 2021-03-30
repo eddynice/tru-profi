@@ -16,7 +16,6 @@ export default function Explore() {
   axios.get(url)
   .then(responnse=>{
     setmedia(responnse.data)
-    console.log(responnse)
   })
 
  }, [url])

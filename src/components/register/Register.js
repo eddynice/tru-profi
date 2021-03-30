@@ -71,30 +71,48 @@ const signupSchema = Yup.object().shape({
 //const  history = useHistory();
 
 export default class Register extends Component {
-    constructor(props) { super(props);
-        this.state = { alert: null };
-        }
-        submitForm = (values,history)=>{
-          axios.post("/user/signup/", values)
-          .then(res => {
-            console.log(res.data.result);
-            if (res.data.result === "success") {
-              swal("Success!", res.data.message, "warning")
-              .then(values => {
-                history.push("/login");
-              });
-            } else if (res.data.result === "error") {
-              swal("Error!", res.data.message, "error");
-            }
-          })
-          .catch(error => {
-            console.log(error);
-            swal("Error!", "Unexpected error", "error")
-          })
-         
-      }
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+      alert: null
+       
+    }
+  }
+  
 
-   
+  
+  submitForm = (values,history)=>{
+    axios.post("/user/signup/", values)
+    .then(res =>{
+     
+        if(res.data.result === "success"){
+          localStorage.setItem("TOKEN_KEY",res.data.token);
+          swal("success", res.data.message, "success")
+          .then(values =>{
+             setTimeout(() => {
+                  history.push("/timeline")
+             }, 1000);
+             
+          });
+      }else if(res.data.result === "error"){
+          swal("error", res.data.message, "error")
+      }
+        
+    })
+    
+    .catch(error=>{
+        console.log(error)
+       
+        swal("Error", "unexpected error", "error")
+    })
+}
+
+      
+
+
+
+
         showForm=({
             values,errors, touched,handleChange,handleSubmit,setFieldValue, isSubmitting
         })=>{
@@ -109,7 +127,7 @@ export default class Register extends Component {
                     className={errors.username && touched.username ? "form-control is-invalid" : "form-control"}
                     />
                     {errors.username && touched.username ? (
-                        <small id="passwordHelp" class="text-danger">
+                        <small id="passwordHelp" className="text-danger">
                             {errors.username}
                         </small>
                     ):null}
@@ -122,7 +140,7 @@ export default class Register extends Component {
                     className={errors.email && touched.email ? "form-control is-invalid" : "form-control"}
                     />
                     {errors.email && touched.email ? (
-                        <small id="passwordHelp" class="text-danger">
+                        <small id="passwordHelp" className="text-danger">
                             {errors.email}
                         </small>
                     ):null}
@@ -137,7 +155,7 @@ export default class Register extends Component {
                     className={errors.password && touched.password ? "form-control is-invalid" : "form-control"}
                     />
                     {errors.password && touched.password ? (
-                        <small id="passwordHelp" class="text-danger">
+                        <small id="passwordHelp" className="text-danger">
                             {errors.password}
                         </small>
                     ):null}
@@ -152,7 +170,7 @@ export default class Register extends Component {
                     className={errors.confirm_password && touched.confirm_password ? "form-control is-invalid" : "form-control"}
                     />
                     {errors.confirm_password && touched.confirm_password ? (
-                        <small id="passwordHelp" class="text-danger">
+                        <small id="passwordHelp" className="text-danger">
                             {errors.confirm_password}
                         </small>
                     ):null}
@@ -168,7 +186,7 @@ export default class Register extends Component {
                     className={errors.PhoneNumber && touched.PhoneNumber ? "form-control is-invalid" : "form-control"}
                     />
                     {errors.phoneNumber && touched.phoneNumber ? (
-                        <small id="passwordHelp" class="text-danger">
+                        <small id="passwordHelp" className="text-danger">
                             {errors.phoneNumber}
                         </small>
                     ):null}
@@ -179,7 +197,7 @@ export default class Register extends Component {
             <div className="icheck-primary">
               <input name="terms" id="agreeTerms" disabled type="checkbox" defaultValue="agree" />
               <label htmlFor="agreeTerms">
-                I agree to the <Link >terms</Link>
+                I agree to the <Link to="/#" >terms</Link>
               </label>
             </div>
           </div>
@@ -197,7 +215,7 @@ export default class Register extends Component {
             <div className="register-box">
   <div className="card card-outline card-primary">
     <div className="card-header text-center">
-     <h1><b>TRU</b>CLASS</h1>
+     <h1><b>TRU</b></h1>
     </div>
     <div className="card-body">
       <p className="login-box-msg">Register as new User</p>
@@ -210,7 +228,7 @@ export default class Register extends Component {
                            phoneNumber:"" 
                         }}
                         onSubmit={(values,{setSubmitting})=>{
-                            console.log(values);
+                            
                             this.submitForm(values,
                                 
                                 this.props.history);
@@ -233,7 +251,7 @@ export default class Register extends Component {
       </div> */}
 <p className="text-center"> OR </p>
 <div className="social-auth-links text-center">
-      <Link className="text-center btn btn-block  " to="/">I  HAVE AN ACCOUNT ALREADY</Link>
+      <Link className="text-center btn btn-block" to="/">I  HAVE AN ACCOUNT ALREADY</Link>
       </div>
     </div>
     {/* /.form-box */}

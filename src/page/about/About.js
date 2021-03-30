@@ -19,13 +19,13 @@ export default function About() {
           <p className="text-muted text-center">Software Engineer</p>
           <ul className="list-group list-group-unbordered mb-3">
             <li className="list-group-item">
-              <b>Followers</b> <Link className="float-right">1,322</Link>
+              <b>Followers</b> <Link to="/#" className="float-right">1,322</Link>
             </li>
             <li className="list-group-item">
-              <b>Following</b><Link className="float-right"></Link>
+              <b>Following</b><Link to="/#" className="float-right"></Link>
             </li>
             <li className="list-group-item">
-              <b>Friends</b><Link className="float-right"></Link>
+              <b>Friends</b><Link to="/#" className="float-right"></Link>
             </li>
           </ul>
           <Link className="btn btn-danger btn-block" to="https://twitter.com/iamEddynics"><b>Follow</b></Link>
@@ -44,7 +44,7 @@ export default function About() {
         <div className="card-body">
           <strong><i className="fas fa-book mr-1" /> Education</strong>
           <p className="text-muted">
-            B.SC in Computer Science from the University of Ambrose Alli 
+            B.Sc in Computer Science from the University of Ambrose Alli 
           </p>
           <hr />
           <strong><i className="fas fa-map-marker-alt mr-1" /> Location</strong>
