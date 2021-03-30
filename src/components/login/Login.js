@@ -70,7 +70,7 @@ componentDidMount(){
     .catch(error=>{
         console.log(error)
        
-        swal("Error", "unexpected error", "error")
+        swal("Error", "unexpected error...", "error")
     })
 }
 
