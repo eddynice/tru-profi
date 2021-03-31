@@ -44,7 +44,7 @@ const SecuredRoute = ({component:Component, ...rest})=>(
   />
 )
 
-
+//<Route path="/timeline" component={Time}/>
 
  function App() {
     const [isOpen, setisOpen] = useState(false)
@@ -102,9 +102,9 @@ const SecuredRoute = ({component:Component, ...rest})=>(
         
        
      
-        <Route path="/detail" component={Explore}/>
-        <Route path="/timeline" component={Time}/>
-        <SecuredRoute path="/about" component={Abou}/>
+        <Route path="/detail" render={()=><Explore/>}/> 
+        <Route path="/timeline" render={()=><Time/>}/>
+        <SecuredRoute path="/about"render={()=><Abou/>}/>
         
       
        
