@@ -18,10 +18,13 @@ import Navbar from './components/NavBar/Navbar.js'
 //check the authentication state of the user
 
 const isLoggin = ()=>{
-  return ( localStorage.getItem("TOKEN_KEY") !=null
+ // return ( localStorage.getItem("TOKEN_KEY") !=null
+  return ( sessionStorage.getItem("TOKEN_KEY") !=null
   //return  null;
   )
-};
+  
+}
+//localStorage.clear()
 
 
 //const isLoggin = ()=>{
@@ -70,7 +73,7 @@ const SecuredRoute = ({component:Component, ...rest})=>(
             switch(value){
                 case "sure":
                     swal("sign out successfully", "success").then(val =>{
-                        localStorage.removeItem("TOKEN_KEY");
+                        sessionStorage.removeItem("TOKEN_KEY");
                        return history.push("/")
                      
                         

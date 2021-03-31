@@ -42,7 +42,7 @@ export default class Log extends Component {
       
        //prevent loginin user from visiting the login page
 componentDidMount(){
-  if(localStorage.getItem("TOKEN_KEY") != null){
+  if(sessionStorage.getItem("TOKEN_KEY") != null){
    return this.props.history.goBack();
   //  return this.props.history.push("/timeline");
   }
@@ -53,7 +53,8 @@ componentDidMount(){
     .then(res =>{
         console.log(res.data.result);
         if(res.data.result === "success"){
-          localStorage.setItem("TOKEN_KEY",res.data.token);
+         // localStorage.setItem("TOKEN_KEY",res.data.token);
+         sessionStorage.setItem("TOKEN_KEY",res.data.token);
           swal("success", res.data.message, "success")
           .then(values =>{
              setTimeout(() => {
