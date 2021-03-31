@@ -14,6 +14,7 @@ height:100%;
 background:#000;
 display:grid;
 align-items:center;
+padding:50px;
 top:0;
 left:0;
 transition:0.3s ease-in-out;
@@ -36,7 +37,7 @@ const CloseIcon= styled(FaTimes)`
 color: #000d1a;
 `;
 const DropDownWrapper= styled.div`
-margin:30%
+
 `;
 const DropDownMenu= styled.div`
 display:grid;
