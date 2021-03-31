@@ -23,7 +23,7 @@ const isLoggin = ()=>{
   //return  null;
   )
 }
-//sessionStorage.clear()
+sessionStorage.clear()
 
 
 //const isLoggin = ()=>{
