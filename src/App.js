@@ -22,9 +22,8 @@ const isLoggin = ()=>{
   return ( sessionStorage.getItem("TOKEN_KEY") !=null
   //return  null;
   )
-  
 }
-sessionStorage.clear()
+//sessionStorage.clear()
 
 
 //const isLoggin = ()=>{
@@ -103,8 +102,8 @@ const SecuredRoute = ({component:Component, ...rest})=>(
         
        
      
-        <SecuredRoute path="/detail" component={Explore}/>
-        <SecuredRoute path="/timeline" component={Time}/>
+        <Route path="/detail" component={Explore}/>
+        <Route path="/timeline" component={Time}/>
         <SecuredRoute path="/about" component={Abou}/>
         
       
