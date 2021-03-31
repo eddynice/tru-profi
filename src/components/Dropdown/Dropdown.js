@@ -35,7 +35,9 @@ outline:none;
 const CloseIcon= styled(FaTimes)`
 color: #000d1a;
 `;
-const DropDownWrapper= styled.div``;
+const DropDownWrapper= styled.div`
+margin:30%
+`;
 const DropDownMenu= styled.div`
 display:grid;
 grid-template-columns:1fr;
