@@ -41,12 +41,12 @@ export default class Log extends Component {
 
       
        //prevent loginin user from visiting the login page
-componentDidMount(){
-  if(sessionStorage.getItem("TOKEN_KEY") != null){
-   return this.props.history.goBack();
+//componentDidMount(){
+ // if(sessionStorage.getItem("TOKEN_KEY") != null){
+  // return this.props.history.goBack();
   //  return this.props.history.push("/timeline");
-  }
-}
+ // }
+//}
   submitForm = (values,history)=>{
     console.log(history)
     axios.post("/user/login/", values)
