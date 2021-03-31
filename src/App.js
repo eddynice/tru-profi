@@ -24,7 +24,7 @@ const isLoggin = ()=>{
   )
   
 }
-//localStorage.clear()
+sessionStorage.clear()
 
 
 //const isLoggin = ()=>{
