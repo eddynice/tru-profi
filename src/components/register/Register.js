@@ -87,7 +87,6 @@ export default class Register extends Component {
     .then(res =>{
      
         if(res.data.result === "success"){
-          localStorage.setItem("TOKEN_KEY",res.data.token);
           swal("success", res.data.message, "success")
           .then(values =>{
              setTimeout(() => {
