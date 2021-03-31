@@ -23,7 +23,7 @@ const isLoggin = ()=>{
   //return  null;
   )
 }
-sessionStorage.clear()
+//sessionStorage.clear()
 
 
 //const isLoggin = ()=>{
@@ -38,7 +38,7 @@ const SecuredRoute = ({component:Component, ...rest})=>(
   isLoggin() === true ? (
       <Component {...props}/>
   ): (
-      <Redirect to="/login"/>
+      <Redirect to="/"/>
   )
   }
   />
@@ -73,7 +73,7 @@ const SecuredRoute = ({component:Component, ...rest})=>(
                 case "sure":
                     swal("sign out successfully", "success").then(val =>{
                         sessionStorage.removeItem("TOKEN_KEY");
-                       return history.push("/login")
+                       return history.push("/")
                      
                         
                     })
@@ -97,7 +97,7 @@ const SecuredRoute = ({component:Component, ...rest})=>(
         <Switch>
        
         
-        <Route exact path="/login" component={Login}/>
+        <Route exact path="/" component={Login}/>
         <Route exact  path="/register" component={Register}/>
         
        
