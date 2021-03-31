@@ -98,13 +98,13 @@ const SecuredRoute = ({component:Component, ...rest})=>(
        
         
         <Route exact path="/" component={Login}/>
-        <Route   path="/register" component={Register}/>
+        <Route exact  path="/register" component={Register}/>
         
        
      
-        <Route path="/detail" render={()=><Explore/>}/> 
-        <Route path="/timeline" render={()=><Time/>}/>
-        <SecuredRoute path="/about"render={()=><Abou/>}/>
+        < Route exact path="/timeline" component={Time}/>
+        <Route exact path="/detail" component={Explore}/>
+        <Route exact path="/about" component={Abou}/>
         
       
        
