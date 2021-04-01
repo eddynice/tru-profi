@@ -37,6 +37,7 @@ const CloseIcon= styled(FaTimes)`
 color: #000d1a;
 `;
 const DropDownWrapper= styled.div`
+padding-bottom:5px;
 
 `;
 const DropDownMenu= styled.div`
