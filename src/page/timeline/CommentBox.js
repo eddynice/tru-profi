@@ -16,15 +16,15 @@ export default function Daa({handleChanges, handleSubmit,setInput,showSuccess,in
   <div className="form-group">
     
     <input type="text" className="form-control" placeholder="Your Name:"
-      name="name" value={input.name} required  onChange={handleChanges}  />
+      name="name"  value={input.name}  required  onChange={handleChanges}  />
   </div>
   <div className="form-group">
     <input type="text" className="form-control" placeholder="Topic:"
-      name="topic" value={input.topic} required onChange={handleChanges} />
+      name="topic"required value={input.topic} onChange={handleChanges} />
   </div>
   <div className="form-group">
     <textarea  type="text" id="compose-textarea" className="form-control" 
-    style={{height: 300}} name="comment" value={input.comment} required onChange={handleChanges} />
+    style={{height: 300}} name="comment"  value={input.comment} required onChange={handleChanges} />
   </div>
   <div className="form-group">
    

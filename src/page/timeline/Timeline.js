@@ -4,8 +4,10 @@ import CommentBox from "./CommentBox"
 import axios from "../../axios"
 import swal from 'sweetalert';
 import moment from "moment"
+import {withRouter} from "react-router-dom"
 
-export default function Timeline() {
+function Timeline(props) {
+  //console.log(props)
   const [showSuccess, setsubmit] = useState(false)
   const [state, setstate] = useState([])
   const [input,setInput] = useState({
@@ -26,7 +28,7 @@ export default function Timeline() {
   axios.get("/comment")
   .then((response)=>{
      setstate(response.data);
-     console.log(response)
+     //console.log(response)
  
  
   })
@@ -35,26 +37,27 @@ export default function Timeline() {
  },[])
 
 
- const  handleSubmit=(e)=>{
-  e.preventDefault();
+ //const  handleSubmit=(e)=>{
+  const  handleSubmit=( history)=>{
+ // e.preventDefault();
   setsubmit(true);
-  console.log(input) 
+  //console.log(input) 
   axios.post("/comment/add", input)
     .then(res =>{
-        console.log(res.data);
+      //  console.log(res.data);
         if(res.data ){
           localStorage.setItem("TOKEN_KEY",res.data);
-          window.location ="/timeline"
+         // window.location ="/timeline"
           swal("success", res.data, "success")
           .then(values =>{
-             
+           history.push("/timeline")
           });
       }
         
     })
     
     .catch(error=>{
-        console.log(error)
+      //  console.log(error)
         swal("Error", "unexpected error", "error")
     })
   
@@ -110,3 +113,5 @@ export default function Timeline() {
 </div>  
     )
 }
+
+export default withRouter(Timeline)

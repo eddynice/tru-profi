@@ -9,7 +9,7 @@ import Abou from './page/about/About'
 
 import Time from './page/timeline/Timeline'
 import Dropdown from './components/Dropdown/Dropdown'
-
+//import CommentBox from './page/timeline/CommentBox'
 import swal from "sweetalert";
 import Navbar from './components/NavBar/Navbar.js'
 //import Timeline from './page/timeline/Timeline'
@@ -101,7 +101,6 @@ const SecuredRoute = ({component:Component, ...rest})=>(
         <Route exact  path="/register" component={Register}/>
         
        
-     
         <SecuredRoute exact path="/timeline" component={Time}/>
         <SecuredRoute exact path="/detail" component={Explore}/>
         <SecuredRoute exact path="/about" component={Abou}/>
