@@ -37,9 +37,9 @@ function Timeline(props) {
  },[])
 
 
- //const  handleSubmit=(e)=>{
-  const  handleSubmit=( history)=>{
- // e.preventDefault();
+ const  handleSubmit=(e)=>{
+  //const  handleSubmit=( history)=>{
+ e.preventDefault();
   setsubmit(true);
   //console.log(input) 
   axios.post("/comment/add", input)
@@ -47,10 +47,10 @@ function Timeline(props) {
       //  console.log(res.data);
         if(res.data ){
           localStorage.setItem("TOKEN_KEY",res.data);
-         // window.location ="/timeline"
+         window.location ="/timeline"
           swal("success", res.data, "success")
           .then(values =>{
-           history.push("/timeline")
+          // history.push("/timeline")
           });
       }
         
