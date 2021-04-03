@@ -3,8 +3,8 @@ import ReadMoreReact from 'read-more-react';
 import CommentBox from "./CommentBox"
 import axios from "../../axios"
 import swal from 'sweetalert';
-import moment from "moment"
-import {withRouter} from "react-router-dom"
+//import moment from "moment"
+//import {withRouter} from "react-router-dom"
 
 function Timeline(props) {
   //console.log(props)
@@ -27,7 +27,7 @@ function Timeline(props) {
    await axios.get("/comment/")
   .then((response)=>{
      setstate(response.data);
-     //console.log(response)
+     console.log(response)
  
  
   })
@@ -81,7 +81,7 @@ function Timeline(props) {
         <div  key={item._id} className="timeline">
           {/* timeline time label */}
           <div className="time-label mt-5 pt-3">
-            <span className="bg-red">{moment(item.date).format('MMMM Do YYYY, h:mm:ss a')}</span>
+            <span className="bg-red"></span>
           </div>
           
           {/* /.timeline-label */}
@@ -118,4 +118,4 @@ function Timeline(props) {
     )
 }
 
-export default withRouter(Timeline)
+export default Timeline
