@@ -24,7 +24,7 @@ function Timeline(props) {
     })
   }
   const comm= async()=>{
-   await axios.get("/comment")
+   await axios.get("/comment/")
   .then((response)=>{
      setstate(response.data);
      //console.log(response)
