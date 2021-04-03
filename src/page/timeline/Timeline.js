@@ -23,9 +23,8 @@ function Timeline(props) {
       [event.target.name]: event.target.value
     })
   }
-
- useEffect(()=>{
-  axios.get("/comment")
+  const comm= async()=>{
+   await axios.get("/comment")
   .then((response)=>{
      setstate(response.data);
      //console.log(response)
@@ -33,6 +32,11 @@ function Timeline(props) {
  
   })
  
+
+  }
+
+ useEffect(()=>{
+  comm()
 
  },[])
 
