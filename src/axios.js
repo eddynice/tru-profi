@@ -2,6 +2,10 @@ import axios from "axios";
 
 const instance = axios.create({
     baseURL:"https://tru-profile.herokuapp.com",
+    headers: {
+        'Access-Control-Allow-Origin' : '*',
+        'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',   
+    }
     // http://localhost:5000",
    // http://localhost:5000/user/signup
 })
