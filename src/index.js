@@ -10,7 +10,7 @@ import './index.css';
 
 ReactDOM.render(
   <BrowserRouter>
-  withRouter
+ 
 
 
  
