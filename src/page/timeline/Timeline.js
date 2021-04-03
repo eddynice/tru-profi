@@ -6,7 +6,7 @@ import swal from 'sweetalert';
 //import moment from "moment"
 //import {withRouter} from "react-router-dom"
 
-function Timeline(props) {
+function Timeline() {
   //console.log(props)
   const [showSuccess, setsubmit] = useState(false)
   const [state, setstate] = useState([])
@@ -39,7 +39,6 @@ function Timeline(props) {
   comm()
 
  },[])
-
 
  const  handleSubmit=(e)=>{
   //const  handleSubmit=( history)=>{
