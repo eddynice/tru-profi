@@ -23,22 +23,24 @@ function Timeline() {
       [event.target.name]: event.target.value
     })
   }
-  const comm= async()=>{
-   await axios.get("/comment/")
-  .then((response)=>{
-     setstate(response.data);
-     console.log(response)
- 
- 
+  
+
+ useEffect(()=>{
+  axios.get("/comment")
+  .then(data =>console.log(data))
+  .catch(error => {
+    console.log(error)
   })
  
 
-  }
-
- useEffect(()=>{
-  comm()
-
  },[])
+
+
+
+
+
+
+
 
  const  handleSubmit=(e)=>{
   //const  handleSubmit=( history)=>{
