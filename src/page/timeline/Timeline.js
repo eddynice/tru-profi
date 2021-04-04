@@ -9,7 +9,7 @@ import swal from 'sweetalert';
 function Timeline() {
   //console.log(props)
   const [showSuccess, setsubmit] = useState(false)
-  const [state, setstate] = useState([])
+ const [state] = useState([])
   const [input,setInput] = useState({
     name:"",
     topic:"",
