@@ -3,13 +3,13 @@ import ReadMoreReact from 'read-more-react';
 import CommentBox from "./CommentBox"
 import axios from "../../axios"
 import swal from 'sweetalert';
-//import moment from "moment"
+import moment from "moment"
 //import {withRouter} from "react-router-dom"
 
 function Timeline() {
   //console.log(props)
   const [showSuccess, setsubmit] = useState(false)
- const [state] = useState([])
+ const [state, setstate] = useState([])
   const [input,setInput] = useState({
     name:"",
     topic:"",
@@ -24,13 +24,21 @@ function Timeline() {
     })
   }
   
+  
+const comm= async()=>{
+  await axios.get("/comment")
+ .then((response)=>{
+    setstate(response.data);
+    console.log(response.data)
+
+
+ })
+
+
+ }
 
  useEffect(()=>{
-  axios.get("/comment/")
-  .then(data =>console.log(data))
-  .catch(error => {
-    console.log(error)
-  })
+  comm()
  
 
  },[])
@@ -82,7 +90,7 @@ function Timeline() {
         <div  key={item._id} className="timeline">
           {/* timeline time label */}
           <div className="time-label mt-5 pt-3">
-            <span className="bg-red"></span>
+            <span className="bg-red">{moment(item.date).format('MMMM Do YYYY, h:mm:ss a')}</span>
           </div>
           
           {/* /.timeline-label */}
