@@ -26,7 +26,7 @@ function Timeline() {
   
 
  useEffect(()=>{
-  axios.get("/comment")
+  axios.get("/comment/")
   .then(data =>console.log(data))
   .catch(error => {
     console.log(error)
